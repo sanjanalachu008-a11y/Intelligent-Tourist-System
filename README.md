@@ -25,10 +25,15 @@ The goal is to make destination discovery simple, personalized, and budget-aware
 # The recommendation engine uses a simple content-based filtering pipeline:
 
 Destination category and description are combined into text.
+
 TfidfVectorizer converts destination text into numerical vectors.
+
 Cosine similarity calculates similarity between destinations.
+
 Destinations are filtered according to the selected category and maximum budget.
+
 The highest-similarity matching destinations are returned.
+
 Up to 5 recommendations are displayed.
 
 # Tech Stack
@@ -75,15 +80,21 @@ The recommendation engine currently uses a content-based approach based mainly o
 Possible future enhancements include:
 
 📍 Location-aware recommendations
+
 🗓️ Personalized itinerary generation
+
 🌦️ Weather-aware recommendations
+
 🧠 More advanced recommendation models
+
 👤 User profiles and preference history
+
 🗺️ Interactive maps
+
 🏨 Hotel and restaurant recommendations
+
 💬 AI travel assistant/chatbot
-📊 Recommendation analytics dashboard
-☁️ Persistent production database
+
 
 
 B.Sc. Computer Science / AI & Data Science Student
