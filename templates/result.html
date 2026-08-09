@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recommendations | WanderAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/result.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="result-navbar">
+
+    <a href="/" class="result-logo">
+        🌍 WanderAI
+    </a>
+
+    <a href="/" class="back-home">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Home
+    </a>
+
+</nav>
+
+
+
+<!-- ================= HEADER ================= -->
+
+<section class="recommendation-header">
+
+    <div class="header-content">
+
+        <span class="ai-badge">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            AI RECOMMENDATIONS
+
+        </span>
+
+
+        <h1>
+            Your Perfect Places
+        </h1>
+
+
+        <p>
+            We found destinations based on your preferences.
+        </p>
+
+
+
+        <!-- SEARCH SUMMARY -->
+
+        <div class="search-summary">
+
+
+            <div class="summary-item">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div>
+
+                    <small>Category</small>
+
+                    <strong>
+                        {{ category }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="summary-item">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <div>
+
+                    <small>Budget</small>
+
+                    <strong>
+                        ₹{{ budget }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="summary-item">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <div>
+
+                    <small>Travel Days</small>
+
+                    <strong>
+                        {{ days }} Days
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= RECOMMENDATIONS ================= -->
+
+<main class="recommendations-section">
+
+
+    {% if places %}
+
+
+        <div class="results-title">
+
+            <div>
+
+                <span>
+                    BASED ON YOUR SEARCH
+                </span>
+
+                <h2>
+                    Recommended for You
+                </h2>
+
+            </div>
+
+
+            <p>
+                {{ places|length }} places found
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= CARDS ================= -->
+
+        <div class="recommendation-grid">
+
+
+            {% for place in places %}
+
+
+                <article class="recommendation-card">
+
+
+                    <!-- IMAGE -->
+
+                    <div class="place-image">
+                        {% if place.image_url %}
+                            <img
+                                src="{{ url_for('static', filename='images/' + place.image_url) }}"
+                                alt="{{ place.name }}"
+                            >
+
+                        {% else %}
+                            <div class="image-placeholder">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                        {% endif %}
+
+                        <span class="match-badge">
+                         <i class="fa-solid fa-star"></i>
+                         {{ place.match_score }}% Match
+                         </span>
+                     </div>
+
+                    <!-- CARD CONTENT -->
+
+                    <div class="place-content">
+
+
+                        <div class="place-location">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            {{ place.destination }}
+
+                        </div>
+
+
+
+                        <h3>
+                            {{ place.name }}
+                        </h3>
+
+
+
+                        <p class="place-description">
+
+                            {{ place.description }}
+
+                        </p>
+
+
+
+                        <!-- DETAILS -->
+
+                        <div class="place-details">
+
+
+                            <div>
+
+                                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                                ₹{{ place.average_cost }}
+
+                            </div>
+
+
+                            <div class="rating">
+
+                                <i class="fa-solid fa-star"></i>
+
+                                {{ place.rating }}
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- MAP BUTTON -->
+
+                        <div class="card-actions">
+
+
+                            {% if place.google_map_link %}
+
+                                <a
+                                    href="{{ place.google_map_link }}"
+                                    target="_blank"
+                                    class="view-btn"
+                                >
+
+                                    <i class="fa-solid fa-location-arrow"></i>
+
+                                    View on Map
+
+                                </a>
+
+                            {% else %}
+
+                                <button
+                                    class="view-btn"
+                                    disabled
+                                >
+
+                                    Map unavailable
+
+                                </button>
+
+                            {% endif %}
+
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+    {% else %}
+
+
+        <!-- ================= NO RESULTS ================= -->
+
+        <div class="no-results">
+
+
+            <div class="no-results-icon">
+                🔎
+            </div>
+
+
+            <h2>
+                No places found
+            </h2>
+
+
+            <p>
+
+                We couldn't find destinations matching your
+                category and budget.
+
+            </p>
+
+
+           <a href="/#search" class="try-again-btn">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+     Plan Another Trip
+
+</a>
+
+
+        </div>
+
+
+    {% endif %}
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="result-footer">
+
+
+    <h3>
+        🌍 WanderAI
+    </h3>
+
+
+    <p>
+        Your intelligent companion for discovering India.
+    </p>
+
+
+    <p class="copyright">
+
+        © 2026 Intelligent Tourist System |
+        Developed by Sanjana
+
+    </p>
+
+
+</footer>
+
+
+</body>
+
+</html>

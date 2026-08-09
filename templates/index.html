@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WanderAI | Intelligent Tourist System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🌍 WanderAI
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="/">Home</a></li>
+
+        <li><a href="#search">Explore</a></li>
+
+        <li><a href="#features">About</a></li>
+
+        <li><a href="#footer">Contact</a></li>
+
+    </ul>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-overlay">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                ✨ AI-Powered Travel Planning
+            </span>
+
+            <h1>
+                Discover Incredible India
+            </h1>
+
+            <p>
+                Find destinations that match your interests,
+                budget and travel plans.
+            </p>
+
+            <a href="#search" class="hero-btn">
+                Start Exploring
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section" id="search">
+
+    <div class="search-card">
+
+        <div class="section-heading">
+
+            <span>PLAN YOUR JOURNEY</span>
+
+            <h2>
+                Find Your Perfect Destination
+            </h2>
+
+            <p>
+                Tell us what you're looking for and let our
+                intelligent recommendation system help you.
+            </p>
+
+        </div>
+
+
+        <form action="/recommend" method="POST">
+
+            <div class="form-grid">
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Category
+                    </label>
+
+                    <select name="category" required>
+
+                        <option value="">
+                            Choose Category
+                        </option>
+
+                        <option value="Beaches">
+                            🏖 Beaches
+                        </option>
+
+                        <option value="Nature">
+                            🌿 Nature
+                        </option>
+
+                        <option value="Historical Places">
+                            🏰 Historical Places
+                        </option>
+
+                        <option value="Shopping">
+                            🛍 Shopping
+                        </option>
+
+                        <option value="Adventure">
+                            🧗 Adventure
+                        </option>
+
+                        <option value="Wildlife">
+                            🐅 Wildlife
+                        </option>
+
+                        <option value="Spiritual">
+                            🛕 Spiritual
+                        </option>
+
+                        <option value="Food">
+                            🍽 Food
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TRAVEL TYPE -->
+
+                <div class="form-group">
+
+                    <label>
+                        <i class="fa-solid fa-users"></i>
+                        Travel Type
+                    </label>
+
+                    <select name="travel_type" required>
+
+                        <option value="Solo">
+                            🧍 Solo
+                        </option>
+
+                        <option value="Family">
+                            👨‍👩‍👧 Family
+                        </option>
+
+                        <option value="Friends">
+                            🧑‍🤝‍🧑 Friends
+                        </option>
+
+                        <option value="Couple">
+                            ❤️ Couple
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BUDGET -->
+
+                <div class="form-group">
+
+                    <label>
+                        <i class="fa-solid fa-wallet"></i>
+                        Budget (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        name="budget"
+                        placeholder="Enter your budget"
+                        min="1"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- DAYS -->
+
+                <div class="form-group">
+
+                    <label>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Travel Days
+                    </label>
+
+                    <input
+                        type="number"
+                        name="days"
+                        placeholder="Number of days"
+                        min="1"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button type="submit" class="search-btn">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                Find My Places
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= POPULAR CATEGORIES ================= -->
+
+<section class="categories-section">
+
+    <div class="section-heading">
+
+        <span>EXPLORE INDIA</span>
+
+        <h2>Popular Categories</h2>
+
+        <p>
+            Choose what kind of experience you want.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <div class="category-card">
+
+            <div class="category-icon">🏖️</div>
+
+            <h3>Beaches</h3>
+
+            <p>Relax by beautiful coastal destinations.</p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-icon">🌿</div>
+
+            <h3>Nature</h3>
+
+            <p>Discover peaceful landscapes and greenery.</p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-icon">🏰</div>
+
+            <h3>Historical</h3>
+
+            <p>Explore India's rich history and heritage.</p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-icon">🐅</div>
+
+            <h3>Wildlife</h3>
+
+            <p>Experience India's incredible wildlife.</p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-icon">🧗</div>
+
+            <h3>Adventure</h3>
+
+            <p>Find exciting experiences and activities.</p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-icon">🍽️</div>
+
+            <h3>Food</h3>
+
+            <p>Discover local flavours and food experiences.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section" id="features">
+
+    <div class="section-heading">
+
+        <span>WHY WANDERAI?</span>
+
+        <h2>Travel Smarter</h2>
+
+        <p>
+            Our system helps you discover places without
+            spending hours searching.
+        </p>
+
+    </div>
+
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🤖
+            </div>
+
+            <h3>AI Recommendations</h3>
+
+            <p>
+                Get personalized destination suggestions
+                based on your preferences.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                💰
+            </div>
+
+            <h3>Budget Friendly</h3>
+
+            <p>
+                Find destinations that fit within your
+                planned travel budget.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🗺️
+            </div>
+
+            <h3>Smart Planning</h3>
+
+            <p>
+                Plan your trip based on your interests
+                and available travel days.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="footer">
+
+    <div class="footer-content">
+
+        <h2>🌍 WanderAI</h2>
+
+        <p>
+            Your intelligent companion for discovering
+            incredible destinations across India.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="/">Home</a>
+
+            <a href="#search">Explore</a>
+
+            <a href="#features">About</a>
+
+        </div>
+
+        <hr>
+
+        <p class="copyright">
+            © 2026 Intelligent Tourist System |
+            Developed by Sanjana
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
