@@ -10,17 +10,16 @@ The goal is to make destination discovery simple, personalized, and budget-aware
 
 # Features
 
-🤖 AI-based recommendations using TF-IDF and cosine similarity
-🏖️ Multiple travel categories such as Beaches, Nature, Historical Places, Adventure, Wildlife, Spiritual, Shopping, and Food
-💰 Budget-based filtering to avoid destinations above the user's selected budget
-⭐ Destination ratings displayed on recommendation cards
-🗺️ Google Maps links for available destinations
-🖼️ Destination images stored locally in the application
-📱 Responsive interface designed for desktop and mobile screens
-🔎 Try Another Search flow for making a new recommendation request
-📝 Search history stored in SQLite
-🌐 Deployment-ready Flask application using Gunicorn
-🧠 How the Recommendation System Works
+*AI-based recommendations using TF-IDF and cosine similarity
+*Multiple travel categories such as Beaches, Nature, Historical Places, Adventure,Wildlife,Spiritual, Shopping, and Food
+*Budget-based filtering to avoid destinations above the user's selected budget
+*Destination ratings displayed on recommendation cards
+*Google Maps links for available destinations
+*Destination images stored locally in the application
+*Responsive interface designed for desktop and mobile screens
+*Try Another Search flow for making a new recommendation request
+*Search history stored in SQLite
+
 
 # The recommendation engine uses a simple content-based filtering pipeline:
 
@@ -31,25 +30,7 @@ Destinations are filtered according to the selected category and maximum budget.
 The highest-similarity matching destinations are returned.
 Up to 5 recommendations are displayed.
 
-#Recommendation Flow
-
-User Preferences
-      ↓
-Category + Budget
-      ↓
-SQLite Destination Data
-      ↓
-Category & Budget Filtering
-      ↓
-TF-IDF Text Vectorization
-      ↓
-Cosine Similarity
-      ↓
-Top Matching Destinations
-      ↓
-Recommendation Cards
-
-🛠️ Tech Stack
+# Tech Stack
 
 Python :Core programming language
 
@@ -70,7 +51,7 @@ JavaScript :Frontend interactions
 Git & GitHub :Version control and hosting
 
 
-#The interface is designed to work across:
+# The interface is designed to work across:
 
 💻 Desktop
 
