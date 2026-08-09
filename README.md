@@ -57,7 +57,9 @@ JavaScript :Frontend interactions
 Git & GitHub :Version control and hosting
 
 
-# The interface is designed to work across:
+# Responsive Design
+
+The interface is designed to work across:
 
 💻 Desktop
 
@@ -68,6 +70,10 @@ Git & GitHub :Version control and hosting
 📲 Tablet
 
 The recommendation cards automatically adjust their layout for smaller screens.
+
+## 🌐 Live Demo
+
+🚀 [Try WanderAI Live]([YOUR_RENDER_URL](https://intelligent-tourist-system.onrender.com))
 
 # Project Scope
 
