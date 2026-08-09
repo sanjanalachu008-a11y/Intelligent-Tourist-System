@@ -10,15 +10,16 @@ The goal is to make destination discovery simple, personalized, and budget-aware
 
 # Features
 
-*AI-based recommendations using TF-IDF and cosine similarity
-*Multiple travel categories such as Beaches, Nature, Historical Places, Adventure,Wildlife,Spiritual, Shopping, and Food
-*Budget-based filtering to avoid destinations above the user's selected budget
-*Destination ratings displayed on recommendation cards
-*Google Maps links for available destinations
-*Destination images stored locally in the application
-*Responsive interface designed for desktop and mobile screens
-*Try Another Search flow for making a new recommendation request
-*Search history stored in SQLite
+• AI-based travel recommendations
+• TF-IDF and cosine similarity
+• Multiple travel categories
+• Budget-based destination filtering
+• Destination ratings
+• Google Maps links
+• Destination images
+• Mobile-friendly responsive design
+• Try Another Search option
+• Search history using SQLite
 
 
 # The recommendation engine uses a simple content-based filtering pipeline:
